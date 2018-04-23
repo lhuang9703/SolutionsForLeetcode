@@ -1,2 +1,3 @@
-# THE-SPIRIT-OF-THE-CHINESE-PEOPLE
-An invaluable but hitherto unsuspected asset of civilization here in China
+# THE Little Prince
+一部献给所有人看的童话，
+一个世界上最伤心的故事！
