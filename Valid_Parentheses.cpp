@@ -2,6 +2,7 @@
 // Number : 20
 // Author : HL
 // Date   : 2018-08-31
+// Kill   : 84.36%
 
 /********************************************************************************** 
 Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
