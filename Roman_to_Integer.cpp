@@ -2,7 +2,7 @@
 // Number : 13
 // Author : HL
 // Date   : 2018-09-09
-// Kill   : 76.25%
+// Kill   : 83.87%
 
 /********************************************************************************** 
 Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
