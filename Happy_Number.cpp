@@ -2,7 +2,7 @@
 // Number : 202
 // Author : HL
 // Date   : 2018-09-11
-// Kill   : 100.00%
+// Kill   : 100.00%，100.00%
 
 /********************************************************************************** 
 Write an algorithm to determine if a number is "happy".
@@ -25,23 +25,42 @@ public:
     bool isHappy(int n) {
         if(n == 1)
             return true;
-        int count = 0;
-        while(count<10)
+        // 循环解法（不严谨，但可以通过测试）
+        // int count = 0;
+        // while(count<10)
+        // {
+        //     vector<int> v;
+        //     int sum = 0;
+        //     while(n>0)
+        //     {
+        //         v.push_back(n%10);
+        //         n /= 10;
+        //     }
+        //     for(vector<int>::iterator it=v.begin(); it!=v.end(); it++)
+        //         sum += (*it)*(*it);
+        //     if(sum==1)
+        //         return true;
+        //     else
+        //         n = sum;
+        //     count++;
+        // }
+        // return false;
+        
+        // 集合解法
+        set<int> s;
+        while(s.find(n)==s.end())
         {
-            vector<int> v;
+            s.insert(n);
             int sum = 0;
             while(n>0)
             {
-                v.push_back(n%10);
+                sum += (n%10)*(n%10);
                 n /= 10;
             }
-            for(vector<int>::iterator it=v.begin(); it!=v.end(); it++)
-                sum += (*it)*(*it);
             if(sum==1)
                 return true;
             else
                 n = sum;
-            count++;
         }
         return false;
     }
