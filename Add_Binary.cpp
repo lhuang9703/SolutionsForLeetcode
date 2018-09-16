@@ -1,7 +1,7 @@
 // Source : https://leetcode-cn.com/problems/add-binary/description/
 // Number : 67
 // Author : HL
-// Date   : 2018-09-15
+// Date   : 2018-09-16
 // Kill   : 89.33%
 
 /********************************************************************************** 
