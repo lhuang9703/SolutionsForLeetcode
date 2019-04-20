@@ -27,6 +27,58 @@ Depending on your language, queue may not be supported natively. You may simulat
 You may assume that all operations are valid (for example, no pop or top operations will be called on an empty stack).
 **********************************************************************************/
 
+/* 用queue实现 */
+class MyStack {
+public:
+    /** Initialize your data structure here. */
+    MyStack() {
+        
+    }
+    
+    /** Push element x onto stack. */
+    void push(int x) {
+        q.push(x);
+    }
+    
+    /** Removes the element on top of the stack and returns that element. */
+    int pop() {
+        int temp;
+        for (int i = 0; i < q.size() - 1; i++)
+        {
+            temp = q.front();
+            q.pop();
+            q.push(temp);
+        }
+        temp = q.front();
+        q.pop();
+        return temp;
+    }
+    
+    /** Get the top element. */
+    int top() {
+        int temp;
+        for (int i = 0; i < q.size() - 1; i++)
+        {
+            temp = q.front();
+            q.pop();
+            q.push(temp);
+        }
+        temp = q.front();
+        q.pop();
+        q.push(temp);
+        return temp;
+    }
+    
+    /** Returns whether the stack is empty. */
+    bool empty() {
+        return q.empty();
+    }
+private:
+    queue<int> q;
+};
+
+
+/* 用list实现 */
 class MyStack {
 public:
     /** Initialize your data structure here. */
