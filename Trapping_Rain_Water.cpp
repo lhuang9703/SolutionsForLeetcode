@@ -44,3 +44,27 @@ public:
         return result;
     }
 };
+
+
+/* 用栈来做 */
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int result = 0;
+        stack<int> s;
+        int cur = 0, size = height.size();
+        while (cur < size)
+        {
+            if (s.empty() || height[s.top()] >= height[cur])
+                s.push(cur++);
+            else
+            {
+                int j = s.top();
+                s.pop();
+                if (s.empty())  { continue; }
+                result += (min(height[cur], height[s.top()]) - height[j]) * (cur - s.top() - 1);
+            }
+        }
+        return result;
+    }
+};
