@@ -27,6 +27,35 @@ You may not modify the values in the list's nodes, only nodes itself may be chan
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
+        if (head == NULL || head->next == NULL)
+            return head;
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode *p = dummy, *q = dummy->next;
+        while (q != NULL && q->next != NULL)
+        {
+            p->next = q->next;
+            q->next = q->next->next;
+            p->next->next = q;
+            p = q;
+            q = p->next;
+        }
+        return dummy->next;
+    }
+};
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
         if(head == NULL || head->next == NULL)
             return head;
         ListNode *p = head, *q = head->next, *r;
