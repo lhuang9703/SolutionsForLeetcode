@@ -28,6 +28,46 @@ Output: 2->3
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
+        if (head == NULL || head->next == NULL)
+            return head;
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        
+        ListNode* p = dummy;
+        ListNode* q = head;
+        while (q != NULL && q->next != NULL)
+        {
+            if (q->val == q->next->val)
+            {
+                while (q->next != NULL && q->val == q->next->val)
+                {
+                    q = q->next;
+                }
+                p->next = q->next;
+                q = q->next;
+            }
+            else
+            {
+                p = q;
+                q = q->next;
+            }
+        }
+        return dummy->next;
+    }
+};
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
         if (head == NULL || head->next ==NULL)
             return head;
         
