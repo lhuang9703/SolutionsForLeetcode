@@ -32,6 +32,35 @@ Could you do this in one pass?
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
+        if (head == NULL)
+            return NULL;
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode *p = dummy, *q = dummy;
+        for (int i = 0; i < n; i++)
+            p = p->next;
+        while (p->next != NULL)
+        {
+            p = p->next;
+            q = q->next;
+        }
+        q->next = q->next->next;
+        return dummy->next;
+    }
+};
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
         ListNode* p=head,*r;
         ListNode* q=head;
         if(n == 1)
