@@ -52,3 +52,58 @@ public:
             return false;
     }
 };
+
+
+/* 非递归实现，层次遍历树并判断每层是否镜像对称 */
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if (root == NULL)
+            return true;
+        stack<TreeNode* > s;
+        vector<int> v;
+        TreeNode* p = root;
+        queue<TreeNode* > q;
+        q.push(p);
+        while (!q.empty())
+        {
+            int size = q.size();
+            for (int i = 0; i < size; i++)
+            {
+                p = q.front();
+                if (p == NULL)
+                    v.push_back(-1);
+                else
+                    v.push_back(p->val);
+                q.pop();
+                if (p != NULL)
+                {
+                    q.push(p->left);
+                    q.push(p->right);
+                }
+            }
+            int left = 0, right = v.size() - 1;
+            while (left <= right)
+            {
+                if (v[left] != v[right])
+                    return false;
+                else
+                {
+                    left++;
+                    right--;
+                }
+            }
+            v.clear();
+        }
+        return true;
+    }
+};
